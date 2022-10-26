@@ -74,9 +74,30 @@ class _PerguntaAppState extends State<PerguntaApp> {
 
   @override
   Widget build(BuildContext context){
-    return MaterialApp(
-      home: Scaffold(
-        drawer: Drawer(),
+    return Scaffold(
+        drawer: Drawer(
+          child: Column(
+            children: [
+              UserAccountsDrawerHeader(accountName: Text('Jamily Yasmin'), accountEmail: Text('mily.yasbarb@gmail.com',), currentAccountPicture: Image.network('https://avatars.githubusercontent.com/u/101207167?v=4'),),
+              ListTile(
+                leading: Icon(Icons.home),
+                title: Text('Home'),
+                subtitle: Text('Ir para a home'),
+                onTap: (){
+                  print('home');
+                },
+              ),
+              ListTile(
+                leading: Icon(Icons.logout),
+                title: Text('Logout'),
+                subtitle: Text('Sair do App'),
+                onTap: (){
+                  Navigator.of(context).pushReplacementNamed('/');
+                },
+              ),
+            ],
+          ),
+        ),
         appBar: AppBar(
           title: const Text('Quiz'),
           backgroundColor: Colors.pink,
@@ -87,7 +108,6 @@ class _PerguntaAppState extends State<PerguntaApp> {
         ],
 
       ) : Resultado(_pontuacao, listaDeRespostas,_reiniciar),
-      ),
-    );
+      );
   }
 }
