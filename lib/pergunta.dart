@@ -76,6 +76,7 @@ class _PerguntaAppState extends State<PerguntaApp> {
   Widget build(BuildContext context){
     return MaterialApp(
       home: Scaffold(
+        drawer: Drawer(),
         appBar: AppBar(
           title: const Text('Quiz'),
           backgroundColor: Colors.pink,
